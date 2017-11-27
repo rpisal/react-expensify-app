@@ -23,3 +23,8 @@ git push heroku master
 heroku open
 
 npm install --production to not install dev dependencies
+
+heroku  https://git.heroku.com/infinite-tor-58808.git (fetch)
+heroku  https://git.heroku.com/infinite-tor-58808.git (push)
+origin  https://github.com/rpisal/react-expensify-app.git (fetch)
+origin  https://github.com/rpisal/react-expensify-app.git (push)
