@@ -20,3 +20,6 @@ heroku --version
 heroku login to connect the heroku account
 heroku create - new heroku app
 git push heroku master
+heroku open
+
+npm install --production to not install dev dependencies
