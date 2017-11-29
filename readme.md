@@ -28,3 +28,40 @@ heroku  https://git.heroku.com/infinite-tor-58808.git (fetch)
 heroku  https://git.heroku.com/infinite-tor-58808.git (push)
 origin  https://github.com/rpisal/react-expensify-app.git (fetch)
 origin  https://github.com/rpisal/react-expensify-app.git (push)
+
+Firebase rules
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "users": {
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid",
+        "expenses": {
+          "$expense_id": {
+            ".validate": "newData.hasChildren(['description', 'note', 'createdAt', 'amount'])",
+            "description": {
+              ".validate": "newData.isString() && newData.val().length > 0"
+            },
+            "note": {
+              ".validate": "newData.isString()"
+            },
+            "createdAt": {
+              ".validate": "newData.isNumber()"
+            },
+            "amount": {
+              ".validate": "newData.isNumber()"
+            },
+            "$other": {
+          		".validate": false
+        		}
+          }
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
